@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churches by Denomination</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #e0f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        canvas {
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myPieChart"></canvas>
+    <script>
+        const ctx = document.getElementById('myPieChart').getContext('2d');
+        const myPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'Baptist',
+                    'Other Christian',
+                    'Evangelical',
+                    'Christian',
+                    'Mainline Protestant',
+                    'Methodist',
+                    'Methodist/Episcopal',
+                    'Apostolic',
+                    'Catholic'
+                ],
+                datasets: [{
+                    data: [18, 13, 4, 3, 2, 2, 1, 1, 1],
+                    backgroundColor: [
+                        '#f26b6b', // Baptist
+                        '#60c3e8', // Other Christian
+                        '#cee397', // Evangelical
+                        '#f4e285', // Christian
+                        '#a480cf', // Mainline Protestant
+                        '#d9b48f', // Methodist
+                        '#5ed5d1', // Methodist/Episcopal
+                        '#ff9d76', // Apostolic
+                        '#fdb2f5'  // Catholic
+                    ]
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            usePointStyle: true
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Churches by Denomination',
+                        font: {
+                            size: 18
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+git clone https://github.com/your-username/churches-by-denomination.git
+cd churches-by-denomination
+git add index.html
+git commit -m "Add pie chart HTML file"
+git push origin main
